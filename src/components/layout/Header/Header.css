@@ -1,0 +1,58 @@
+
+  .section-header img{
+    object-fit: cover;
+}
+.login{
+    color: var(--secondary-blue);
+}
+.login:hover{
+    color: var(--dark-blue);
+}
+.search-btn{
+    background-color: var(--secondary-blue);
+    transition: 0.5s ease;
+}
+.search-btn:hover{
+    background-color: var(--dark-blue);
+}
+.custom-link {
+    padding: 8px 20px;
+    color: var(--black);
+}
+.logo-span{
+    color: var(--primary-blue);
+}
+.custom-link:hover {
+    color: var(--dark-color);
+}
+
+.header-cart-bedge {
+    color: var(--secondary-blue);
+}
+
+.nav-custom {
+    background-color: #fff;
+}
+.badge-clr{
+    background-color: var(--secondary-blue);
+}
+
+.nav-custom .navbar-toggler {
+    border: none;
+}
+
+.custom-toggler.navbar-toggler:focus {
+    outline: none; 
+    box-shadow: none; 
+    background-color: white;
+}
+
+@media (max-width:700px) {
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        margin-top: 10px;
+    }
+}

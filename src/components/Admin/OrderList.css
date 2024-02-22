@@ -1,0 +1,37 @@
+.order-list{
+    display: flex;
+    background-color: var(--bg-color);
+}
+.order-list-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    width: 100%;
+}
+.order-table{
+    margin-left: 250px;
+}
+.order-list-container .btn{
+    width: 80px;
+    background-color: var(--secondary-blue);
+    color: white;
+    margin-left: 10px;
+}
+.order-list-container .btn:hover{
+    border: 1px solid var(--secondary-blue);
+    background-color: var(--white);
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+.order-list-container .btn2{
+    background-color: var(--dark-blue);
+    color: white;
+    margin-left: 10px;
+}
+.order-list-container .btn2:hover{
+    border: 1px solid var(--secondary-blue);
+    background-color: var(--white);
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}

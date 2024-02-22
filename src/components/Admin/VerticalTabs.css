@@ -1,0 +1,86 @@
+/* Define styles for the dashboard container */
+
+
+.sidebar {
+    width: 250px;
+    height: 130vh;
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    color: white;
+    padding: 50px 10px;
+}
+
+.sidebar h3 {
+    font-family: 'Caveat', cursive;
+    color: var(--bg-color);
+    font-weight: 200;
+    margin-left: 20px;
+    text-decoration: underline var(--primary-blue);
+    
+}
+
+.menu-single {
+    display: flex;
+}
+.menu-list{
+    margin-top: 40px;
+}
+.menu-item {
+    display: block;
+    padding: 10px 20px;
+    border-bottom: 0.5px solid var(--text-color);
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.4s;
+}
+
+.menu-item2 {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.4s;
+}
+
+.menu-item:hover {
+    background-color: var(--secondary-blue);
+    color: #ffffff;
+    /* Background color of menu items on hover */
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu a {
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width:768px) {
+    .sidebar-mobile {
+        width: 250px;
+        background-color: #333;
+        color: white;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    .sidebar-mobile.open {
+        transform: translateX(0);
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+}
+
+@media (min-width:768px) {
+    .formobile {
+        display: none;
+    }
+
+}

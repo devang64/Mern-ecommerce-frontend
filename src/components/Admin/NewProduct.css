@@ -1,0 +1,129 @@
+.Newproduct {
+    display: flex;
+    background-color: var(--white);
+}
+.createProductForm{
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.newProductContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    
+}
+#createProductFormFile>input::file-selector-button{
+    width: 200px;
+    background-color: var(--secondary-blue);
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    color: var(--white);
+    cursor: pointer;
+}
+#createProductFormFile>input::file-selector-button:hover {
+    border: 2px solid var(--secondary-blue);
+    background-color: var(--white);
+    outline: 0;
+    border-radius: 3px;
+    color: var(--secondary-blue);
+}
+
+#createProductFormImage {
+    width: 100%;
+    overflow: auto;
+}
+
+#createProductFormImage>img {
+    width: 3vmax;
+    margin: 0 0.5vmax;
+}
+
+.form__group {
+    position: relative;
+    padding: 18px 0 0;
+    margin-top: 5px;
+}
+.form__group input{
+    padding: 10px;
+    color: var(--text-color);
+}
+
+.form__field {
+    font-family: inherit;
+    width: 500px;
+    border: 0;
+    border: 1px solid var(--secondary-blue);
+    outline: 0;
+    color: rgb(0, 0, 0);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__field_select {
+    width: 500px;
+    border: 1px solid var(--secondary-blue);
+    outline: none;
+    color: var(--text-color);
+    padding: 7px 10px;
+    background: transparent;
+}
+
+.form__label {
+    margin-top: 2px;
+    position: absolute;
+    top: -15px;
+    left: 0px;
+    display: block;
+    transition: 0.2s;
+    color: var(--text-color);
+    font-size: small;
+    padding: 7px 10px;
+}
+
+.form__field:focus {
+    ~.form__label {
+        position: absolute;
+        padding: 0px;
+        top: -10px;
+        left: 0;
+        color: var(--secondary-blue);
+        font-size: small;
+    }
+
+    padding-bottom: 6px;
+    border-width: 1px;
+    border-color: var(--secondary-blue);
+    border-image-slice: 1;
+}
+
+/* reset input */
+.form__field {
+
+    &:required,
+    &:invalid {
+        box-shadow: none;
+    }
+}
+
+.button-form {
+    background-color: var(--secondary-blue);
+}
+
+.button-form:hover {
+    border: 2px solid var(--secondary-blue);
+    background-color: var(--white-color);
+    color: var(--secondary-blue);
+}

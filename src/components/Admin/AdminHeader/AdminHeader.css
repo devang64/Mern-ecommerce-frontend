@@ -1,0 +1,24 @@
+.Admin-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+   
+}
+
+.admin-header-shadow {
+   position: relative;
+   top: 0;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.Admin-header h4 {
+    margin-left: 300px;
+    font-weight: 600;
+}
+
+.menu-header-admin {
+    padding: 10px 0;
+    margin-right: 20px;
+}

@@ -1,0 +1,40 @@
+.all-product {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bg-color);
+}
+
+.all-productContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.product-list {
+    margin-left: 250px;
+}
+
+.all-productContainer .btn{
+    width: 80px;
+    background-color: var(--secondary-blue);
+    color: white;
+    margin-left: 10px;
+}
+.all-productContainer .btn:hover{
+    border: 1px solid var(--secondary-blue);
+    background-color: var(--white);
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+.all-productContainer .btn2{
+    background-color: var(--dark-blue);
+    color: white;
+    margin-left: 10px;
+}
+.all-productContainer .btn2:hover{
+    border: 1px solid var(--secondary-blue);
+    background-color: var(--white);
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}

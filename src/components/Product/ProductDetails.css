@@ -1,0 +1,148 @@
+
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+   
+}
+.reviewcard {
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 212, 212);
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profile h5{
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* Product View */
+.product-view .product-name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.product-view .product-name .label-stock {
+    font-size: 13px;
+    padding: 4px 13px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+    float: right;
+}
+
+
+.product-view .selling-price {
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.product-view .original-price {
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.product-view .btn1 {
+    border: 1px solid var(--text-color); 
+    margin-right: 3px;
+    border-radius: 0px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.product-view .btn1:hover {
+    background-color: var(--dark-blue);
+    color: #fff;
+}
+.product-view .btn2{
+    border-radius: 3px;
+    padding: 10px;
+    margin-left: 7px;
+    background-color: var(--secondary-blue);
+    color: #fff;
+    transition: 0.4s ease;
+}
+.product-view .btn2:hover{
+    background-color: var(--dark-blue);
+}
+.buttons-product{
+    margin-top: 20px;
+}
+.product-view .btn3{
+    margin-left: 10px;
+    border-radius: 3px;
+    padding: 10px;
+    
+    background-color: var(--text-color);
+    color: #fff;
+    transition: 0.4s ease;
+}
+.product-view .btn3:hover{
+    background-color: var(--dark-color);
+   
+}
+
+.product-view .input-quantity {
+    border: 1px solid #000;
+    margin-right: 3px;
+    font-size: 12px;
+    margin-top: 10px;
+    width: 58px;
+    outline: none;
+    text-align: center;
+}
+.img-list{
+    position: absolute;
+    top: 29.5%;
+    left: 1%;
+}
+.image_list_item{
+    list-style: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.image_list_item img{
+    width: 100px;
+    height: 100px;
+}
+.main-img{
+    margin-left: 30px;
+}
+.main-img img{
+    height: 400px;
+    object-fit: contain;
+}
+@media (max-width:1000px) and (min-width : 100px) {
+    .img-list{
+        position:static;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .image_list_item{
+        margin: 5px 5px 5px 0;
+        
+    }
+    .main-img{
+        margin: 0;
+    }
+    .main-img img{
+        height: 300px;
+        object-fit: contain;
+    }
+}
+
+/* Animation for buttons */

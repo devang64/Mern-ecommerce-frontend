@@ -1,0 +1,29 @@
+
+.product-filter {
+    
+    width: 250px;
+}
+.button-div{
+    display: flex;
+    justify-content: center;
+}
+.product-filter button {
+    background: var(--secondary-blue) !important;
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+.product-filter button:hover {
+    background: var(--dark-blue) !important;
+}
+.product-filter .filter-category-list {
+   list-style: none;
+   color: var(--text-color);
+   cursor: pointer;
+}
+.product-filter .filter-category-list:hover {
+   color: var(--secondary-blue);
+}
+.product-filter .filter-category-list:visited {
+   color: var(--primary-blue);
+}

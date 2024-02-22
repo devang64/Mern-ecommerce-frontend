@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800, 800i, 900&display=swap');
+
+
+:root {
+  /* CSS HEX */
+  --black: #00171f;
+  --dark-blue: #003459;
+  --white: #ffffff;
+  --secondary-blue: #007ea7;
+  --hover-blue: #006789;
+  --primary-blue: #00a8e8;
+  --dark-color: #212529;
+  --text-color: #49525b;
+  --bg-color : #f2f2f2;
+}
+
+
+.App {
+  font-family: 'Poppins', sans-serif;
+}

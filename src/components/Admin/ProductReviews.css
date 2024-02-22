@@ -1,0 +1,14 @@
+.all-review{
+    display: flex;
+    background-color: var(--bg-color);
+}
+.all-reviewContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 250px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}

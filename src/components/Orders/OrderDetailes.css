@@ -1,0 +1,34 @@
+.orderDetailsCartItemsContainer img{
+    width: 100px;
+    height: 100px;
+}
+/* OrderDetailes.css */
+.orderDetailsPage {
+    padding: 20px;
+    background-color: #f4f4f4;
+    
+  }
+  
+  .orderDetailsContainer {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .orderDetails {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .greenColor {
+    color: green;
+  }
+  
+  .redColor {
+    color: red;
+  }
+  
+  /* Add more styles as needed */
+  

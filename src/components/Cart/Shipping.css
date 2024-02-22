@@ -1,0 +1,129 @@
+/* Shipping.css */
+
+.shipping-payment-container {
+  max-width: 800px;
+  
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.step-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: 0;
+}
+.form-group input:focus {
+  border: 1px solid var(--secondary-blue);
+}
+
+button {
+  background-color: var(--secondary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: var(--hover-blue);
+}
+
+.order-summary-heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.order-summary-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.shipping-info-display,
+.cart-items-summary {
+  flex: 1;
+}
+
+.cart-items-summary h4,
+.cart-items-summary ul,
+.cart-items-summary p {
+  margin: 0;
+}
+
+.cart-items-summary img{
+  width: 80px;
+}
+.cart-items-summary li{
+  list-style: none;
+}
+
+.continue-button {
+  background-color: var(--secondary-blue)
+}
+
+.continue-button,
+.modify-shipping-button {
+  margin-left: 5px;
+  color: #fff;
+  background-color: var(--secondary-blue);
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.modify-shipping-button:hover {
+ background-color: var(--white);
+ border: 1px solid var(--secondary-blue);
+ color: var(--secondary-blue);
+}
+
+.payment-heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.confirm-button {
+  background-color: #28a745;
+}
+
+.confirm-button {
+  background-color: #28a745;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}

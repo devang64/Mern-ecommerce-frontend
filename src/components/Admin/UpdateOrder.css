@@ -1,0 +1,91 @@
+
+/* UpdateOrder.css */
+.update-order-container {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--bg-color);
+}
+
+.order-details {
+  margin: 30px 30px 30px 280px;/* Add margin for spacing */
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%; /* Make sure it takes the available width */
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.order-details h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.order-details h4 {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.order-details p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.order-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+.order-details div {
+  margin: 20px 0;
+}
+
+.order-details div p {
+  margin: 5px 0;
+}
+
+.order-details img {
+  max-width: 100px; /* Adjust image max width as needed */
+  margin-right: 10px;
+}
+
+/* Update Status Form */
+select {
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 15px;
+}
+
+button {
+  background-color: var(--secondary-blue);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+button:hover {
+  background-color: var(--hover-blue);
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cart-order-summary{
+  display: flex;
+  align-items: center;
+}

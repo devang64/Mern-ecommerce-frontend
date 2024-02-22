@@ -1,0 +1,12 @@
+.orderSuccess{
+    display: flex;
+    margin : 50px 0px;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.orderSuccess i{
+    color: rgb(0, 206, 0);
+    font-size: 36px;
+}
