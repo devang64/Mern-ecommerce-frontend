@@ -43,6 +43,7 @@ export const getProduct = (keyword = "", currentPage = 1, price = [0, 50000], ca
         const { data } = await axios.get(link);
         dispatch({
             type: ALL_PRODUCT_SUCCESS,
+            type: ALL_PRODUCT_SUCCESS,
             payload: data
         })
     } catch (error) {

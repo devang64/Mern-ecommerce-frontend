@@ -8,6 +8,7 @@ import Loader from './components/layout/Loader/Loader';
 import ProductDetails from '../src/components/Product/ProductDetails'
 import Products from './components/Product/Product';
 import Search from '../src/components/Features/Search';
+import Filter from './components/Features/Filter.js';
 import LoginSignup from './components/User/LoginSignup';
 import UpdateProfile from './components/User/UpdateProfile';
 import { ToastContainer } from "react-toastify";
