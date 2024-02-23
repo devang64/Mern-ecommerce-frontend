@@ -91,7 +91,7 @@ const Home = () => {
     }
     dispatch(getProduct());
 
-  }, [dispatch, error, alert]);
+  }, [dispatch, error]);
 
   return (
     <>
