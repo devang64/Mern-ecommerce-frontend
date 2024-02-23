@@ -44,7 +44,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/v1/password/forgot`, { email }, config);
+    const { data } = await axios.post(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/password/forgot`, { email }, config);
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
   } catch (error) {
@@ -58,7 +58,7 @@ export const resetPassword = (token, newPassword, newConfirmPassword) => async (
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/v1/password/reset/${token}`, { token, newPassword, newConfirmPassword }, config);
+    const { data } = await axios.post(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/password/reset/${token}`, { token, newPassword, newConfirmPassword }, config);
     if (data.success) {
       toast.success("Password reset successfully")
     }
@@ -101,7 +101,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('/api/v1/register', { name, email, password }, config);
+    const { data } = await axios.post('https://mern-ecommerce-backend-mu.vercel.app/api/v1/register', { name, email, password }, config);
     if (data.success) {
       toast.success("Register Successfull")
     }
@@ -124,7 +124,7 @@ export const updatePassword = (oldPassword, newPassword, confirmPassword) => asy
       },
     };
 
-    const { data } = await axios.put('/api/v1/password/update', { oldPassword, newPassword, confirmPassword }, config);
+    const { data } = await axios.put('https://mern-ecommerce-backend-mu.vercel.app/api/v1/password/update', { oldPassword, newPassword, confirmPassword }, config);
     console.log(data)
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
     dispatch(loadUser());
@@ -150,7 +150,7 @@ export const updateProfile = (name, email) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('/api/v1/profile/update', { name, email }, config);
+    const { data } = await axios.post('https://mern-ecommerce-backend-mu.vercel.app/api/v1/profile/update', { name, email }, config);
 
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
     dispatch(loadUser());
@@ -170,7 +170,7 @@ export const updateProfile = (name, email) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const { data } = await axios.get(`/api/v1/profile`);
+    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/profile`);
     if (data.success) {
       dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
     } else {
@@ -200,7 +200,7 @@ export const logout = () => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
-    const { data } = await axios.get(`/api/v1/admin/users`);
+    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/users`);
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
   } catch (error) {
@@ -211,7 +211,7 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/v1/admin/users/${id}`);
+    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/users/${id}`);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
   } catch (error) {
@@ -226,7 +226,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/admin/users/${id}`,
+      `https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/users/${id}`,
       userData,
       config
     );
@@ -245,7 +245,7 @@ export const deleteUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/admin/users/${id}`);
+    const { data } = await axios.delete(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/users/${id}`);
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {

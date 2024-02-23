@@ -2,7 +2,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART,SAVE_SHIPPING_INFO } from "../Constants/C
 import axios from "axios";
 
 export const addToCart = (id, quantity) => async (dispatch, getstate) => {
-    const { data } = await axios.get(`/api/v1/product/${id}`);
+    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/product/${id}`);
     console.log(data)
     dispatch({
         type: ADD_TO_CART,
