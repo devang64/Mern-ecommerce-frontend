@@ -22,7 +22,6 @@
     "jwt-decode": "^3.1.2",
     "rc-slider": "^10.2.1",
     "react": "^18.2.0",
-    "react-alert": "^7.0.3",
     "react-bootstrap": "^2.8.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -43,8 +42,20 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "react-scripts dev",
+    "dev": "react-scripts start",
     "lint": "react-scripts lint"
   },
-  "proxy": "https://mern-ecommerce-backend-mu.vercel.app/"
+  "proxy": "https://mern-ecommerce-backend-mu.vercel.app/",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
