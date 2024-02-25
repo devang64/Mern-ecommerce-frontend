@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
 }
 
 .mid3-section {
@@ -145,6 +146,11 @@
   .mid3-title {
     font-size: 10px;
   }
+  .mid-title-section {
+    text-align: left;
+    margin: 30px 15px 10px 20px;
+  }
+  
   .mid3-one-section{
     display: flex;
     flex-direction: column;
