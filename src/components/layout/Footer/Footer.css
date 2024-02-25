@@ -1,7 +1,8 @@
 .footer-area{
     padding: 40px 0px;
-    background-color: var(--secondary-blue);
+    background-color: var(--text-color);
     color: #fff;
+    font-size: small;
 }
 .footer-area a{
     text-decoration: none;

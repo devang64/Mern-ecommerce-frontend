@@ -79,8 +79,7 @@ export const Footer = () => {
           <div className="footer-underline" />
           <div className="mb-2">
             <p>
-              <i className="fa fa-map-marker" /> #444, main road, main
-              area, india - 223134
+              <i className="fa fa-map-marker" /> 444, Gujrat, india - 223134
             </p>
           </div>
           <div className="mb-2">
@@ -89,7 +88,7 @@ export const Footer = () => {
             </a>
           </div>
           <div className="mb-2">
-            <a href="" className="text-white">
+            <a href="devangpatel6432@gmail.com" className="text-white">
               <i className="fa fa-envelope" /> devangpatel6432@gmail.com
             </a>
           </div>
@@ -109,17 +108,17 @@ export const Footer = () => {
         <div className="col-md-4">
           <div className="social-media">
             Get Connected:
-            <a href="">
+            <a href="" target='_blank'>
               <i className="fa fa-facebook" />
             </a>
-            <a href="">
+            <a href="" target='_blank'>
               <i className="fa fa-twitter" />
             </a>
-            <a href="">
+            <a href="https://www.instagram.com/_whoisdevang/" target='_blank'>
               <i className="fa fa-instagram" />
             </a>
-            <a href="">
-              <i className="fa fa-youtube" />
+            <a href="https://www.linkedin.com/in/devang07/" target='_blank'>
+              <i className="fa fa-linkedin" />
             </a>
           </div>
         </div>
