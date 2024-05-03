@@ -13,7 +13,7 @@ const Profile = () => {
     return (
         <>
             {loading ? <Loader /> : verifyUserAuthenticate ? <>
-                <MetaData title={`${user.name}'s Profile`} />
+                <MetaData title={`${user?.name}'s Profile`} />
                 <section style={{ backgroundColor: "#fff" }}>
                     <div className="container py-5">
                         <div className="row">
@@ -27,7 +27,7 @@ const Profile = () => {
                                             className="rounded-circle img-fluid"
                                             style={{ width: 150 }}
                                         />
-                                        <h5 className="my-3">{user.name}</h5>
+                                        <h5 className="my-3">{user?.name}</h5>
                                         <div className="d-flex justify-content-center mb-2">
                                             <button type="button" class="btn btn-light"><Link to="/profile/update">Edit Profile</Link></button>
                                         </div>
@@ -42,7 +42,7 @@ const Profile = () => {
                                                 <p className="mb-0">Full Name</p>
                                             </div>
                                             <div className="col-sm-9">
-                                                <p className="text-muted mb-0">{user.name}</p>
+                                                <p className="text-muted mb-0">{user?.name}</p>
                                             </div>
                                         </div>
                                         <hr />
@@ -51,7 +51,7 @@ const Profile = () => {
                                                 <p className="mb-0">Email</p>
                                             </div>
                                             <div className="col-sm-9">
-                                                <p className="text-muted mb-0">{user.email}</p>
+                                                <p className="text-muted mb-0">{user?.email}</p>
                                             </div>
                                         </div>
                                         <hr />
@@ -79,7 +79,7 @@ const Profile = () => {
                                                 <p className="mb-0">Joined On</p>
                                             </div>
                                             <div className="col-sm-9">
-                                                <p className="text-muted mb-0">{String(user.createdAt).substr(0, 10)}</p>
+                                                <p className="text-muted mb-0">{String(user?.createdAt).substr(0, 10)}</p>
                                             </div>
                                         </div>
                                         <hr />
