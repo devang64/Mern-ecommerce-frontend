@@ -21,6 +21,9 @@ import {
 } from "../Constants/OrderConstants";
 
 import axios from "axios";
+const BACKEND_URL = "https://mern-ecommerce-backend-mu.vercel.app"
+// const BACKEND_URL = "http://localhost:5000"
+const token = localStorage.getItem("token");
 
 export const createOrder = (order) => async (dispatch) => {
   try {
@@ -29,9 +32,10 @@ export const createOrder = (order) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        'token': token
       },
     };
-    const { data } = await axios.post("https://mern-ecommerce-backend-mu.vercel.app/api/v1/order/new", order, config);
+    const { data } = await axios.post(`${BACKEND_URL}/api/v1/order/new`, order, config);
 
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
@@ -47,8 +51,13 @@ export const clearErrors = () => async (dispatch) => {
 export const myOrders = () => async (dispatch) => {
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
-
-    const { data } = await axios.get("https://mern-ecommerce-backend-mu.vercel.app/api/v1/orders/me");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        'token': token
+      },
+    };
+    const { data } = await axios.get(`${BACKEND_URL}/api/v1/orders/me`, config);
 
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -62,9 +71,13 @@ export const myOrders = () => async (dispatch) => {
 export const getOrderDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
-
-    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/order/${id}`);
-    console.log(data)
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        'token': token
+      },
+    };
+    const { data } = await axios.get(`${BACKEND_URL}/api/v1/order/${id}`, config);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
   } catch (error) {
     dispatch({
@@ -78,8 +91,13 @@ export const getOrderDetails = (id) => async (dispatch) => {
 export const getAllOrders = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
-
-    const { data } = await axios.get("https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/orders");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        'token': token
+      },
+    };
+    const { data } = await axios.get(`${BACKEND_URL}/api/v1/admin/orders`, config);
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -98,10 +116,11 @@ export const updateOrder = (id, order) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        'token': token
       },
     };
     const { data } = await axios.put(
-      `https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/order/${id}`,
+      `${BACKEND_URL}p/api/v1/admin/order/${id}`,
       order,
       config
     );
@@ -119,8 +138,13 @@ export const updateOrder = (id, order) => async (dispatch) => {
 export const deleteOrder = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
-
-    const { data } = await axios.delete(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/order/${id}`);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        'token': token
+      },
+    };
+    const { data } = await axios.delete(`${BACKEND_URL}/api/v1/admin/order/${id}`, config);
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
   } catch (error) {

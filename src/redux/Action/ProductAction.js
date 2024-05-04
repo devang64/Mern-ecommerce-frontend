@@ -30,15 +30,17 @@ import {
     DELETE_REVIEW_FAIL,
     CLEAR_ERRORS,
 } from '../Constants/ProductConstants'
-
+const BACKEND_URL = "https://mern-ecommerce-backend-mu.vercel.app"
+// const BACKEND_URL = "http://localhost:5000"
+const token = localStorage.getItem('token')
 export const getProduct = (keyword = "", currentPage = 1, price = [0, 50000], category) => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCT_REQUEST,
         })
-        let link = `https://mern-ecommerce-backend-mu.vercel.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+        let link = `${BACKEND_URL}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
         if (category) {
-            link = `https://mern-ecommerce-backend-mu.vercel.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
+            link = `${BACKEND_URL}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
         }
         const { data } = await axios.get(link);
         dispatch({
@@ -58,7 +60,7 @@ export const getProductDetails = (id) => async (dispatch) => {
         dispatch({
             type: PRODUCT_DETAILS_REQUEST,
         })
-        const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/product/${id}`);
+        const { data } = await axios.get(`${BACKEND_URL}/api/v1/product/${id}`);
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
             payload: data
@@ -79,7 +81,7 @@ export const newReview = (reviewData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        const { data } = await axios.post(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/review`, reviewData, config);
+        const { data } = await axios.post(`${BACKEND_URL}/api/v1/review`, reviewData, config);
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -98,8 +100,12 @@ export const newReview = (reviewData) => async (dispatch) => {
 export const getAdminProduct = () => async (dispatch) => {
     try {
         dispatch({ type: ADMIN_PRODUCT_REQUEST });
-
-        const { data } = await axios.get("https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/products");
+        const config = {
+            headers: {
+                'token': token
+            }
+        }
+        const { data } = await axios.get(`${BACKEND_URL}/api/v1/admin/products`, config);
 
         dispatch({
             type: ADMIN_PRODUCT_SUCCESS,
@@ -116,10 +122,14 @@ export const getAdminProduct = () => async (dispatch) => {
 export const createProduct = (productData) => async (dispatch) => {
     try {
         dispatch({ type: NEW_PRODUCT_REQUEST });
-
+        const config = {
+            headers: {
+                'token': token
+            }
+        }
         const { data } = await axios.post(
-            `https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/product/new`,
-            productData
+            `${BACKEND_URL}/api/v1/admin/product/new`,
+            productData, config
         );
 
         dispatch({
@@ -137,10 +147,14 @@ export const createProduct = (productData) => async (dispatch) => {
 export const updateProduct = (id, productData) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_PRODUCT_REQUEST });
-
+        const config = {
+            headers: {
+                'token': token
+            }
+        }
         const { data } = await axios.put(
-            `https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/product/${id}`,
-            productData
+            `${BACKEND_URL}api/v1/admin/product/${id}`,
+            productData, config
         );
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -158,8 +172,12 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST });
-
-        const { data } = await axios.delete(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/admin/product/${id}`);
+        const config = {
+            headers: {
+                'token': token
+            }
+        }
+        const { data } = await axios.delete(`${BACKEND_URL}/api/v1/admin/product/${id}`, config);
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
             payload: true,
@@ -176,7 +194,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     try {
         dispatch({ type: ALL_REVIEW_REQUEST });
 
-        const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/reviews?id=${id}`);
+        const { data } = await axios.get(`${BACKEND_URL}/api/v1/reviews?id=${id}`);
 
         dispatch({
             type: ALL_REVIEW_SUCCESS,
@@ -193,9 +211,13 @@ export const getAllReviews = (id) => async (dispatch) => {
 export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_REVIEW_REQUEST });
-
+        const config = {
+            headers: {
+                'token': token
+            }
+        }
         const { data } = await axios.delete(
-            `https://mern-ecommerce-backend-mu.vercel.app/api/v1/reviews?id=${reviewId}&productId=${productId}`
+            `${BACKEND_URL}/api/v1/reviews?id=${reviewId}&productId=${productId}`, config
         );
 
         dispatch({

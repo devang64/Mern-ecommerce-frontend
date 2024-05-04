@@ -54,17 +54,17 @@ const ProductList = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.map(product => (
-                  <tr key={product._id}>
-                    <td>{product._id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.stock}</td>
-                    <td>₹{product.price}</td>
+                {products?.map(product => (
+                  <tr key={product?._id}>
+                    <td>{product?._id}</td>
+                    <td>{product?.name}</td>
+                    <td>{product?.stock}</td>
+                    <td>₹{product?.price}</td>
                     <td>
-                      <Link to={`/admin/products/${product._id}`} className="btn ">
+                      <Link to={`/admin/products/${product?._id}`} className="btn ">
                         Edit
                       </Link>
-                      <button onClick={() => deleteProductHandler(product._id)} className="btn btn2 ">
+                      <button onClick={() => deleteProductHandler(product?._id)} className="btn btn2 ">
                         Delete
                       </button>
                     </td>

@@ -14,7 +14,7 @@ function Shipping() {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-console.log(cartItems)
+  console.log(cartItems)
   const [shippingDetails, setShippingDetails] = useState({
     // fullName: shippingInfo.fullName,
     // phoneNumber : shippingInfo.phoneNumber,
@@ -23,7 +23,7 @@ console.log(cartItems)
     address: '',
     city: '',
     postalCode: '',
-    state:'',
+    state: '',
     country: ''
     // fullName: shippingInfo.fullName,
     // phoneNumber: shippingInfo.phoneNumber,
@@ -50,10 +50,10 @@ console.log(cartItems)
     const shippingCharges = 0 // You can update this if needed
     const totalPrice = calculateTotalPrice();
     const data = {
-      subtotal,gst,shippingCharges,totalPrice
+      subtotal, gst, shippingCharges, totalPrice
     }
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    navigate('/process/payment')
+    // navigate('/process/payment')
   }
 
   const handleContinue = () => {
@@ -64,8 +64,7 @@ console.log(cartItems)
       setStep(2);
     } else if (step === 2) {
       handleOrderSummury();
-      navigate('/process/payment')
-      // setStep(3);
+      setStep(3);
     }
   };
 
@@ -222,7 +221,7 @@ console.log(cartItems)
               <ul>
                 {cartItems.map((item) => (
                   <li key={item.id}>
-                  <img src={item.image}/>
+                    <img src={item.image} alt='imag' />
                     {item.name} ({item.quantity} x ₹{item.price.toFixed(2)})
                   </li>
                 ))}
@@ -241,7 +240,9 @@ console.log(cartItems)
           </button>
           <button className="continue-button" type="button" onClick={handleContinue}>Continue</button>
         </div>
-      ) :  null}
+      ) : step === 3 ? (
+        <h3>Payment Processing is under maintenance...</h3>
+      ) : null}
     </div>
   );
 }

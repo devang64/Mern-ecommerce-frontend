@@ -7,6 +7,7 @@ import './MyOrder.css'
 const MyOrder = () => {
     const dispatch = useDispatch()
     const { loading, error, orders } = useSelector(state => state.myOrder);
+    console.log(orders)
     const { user } = useSelector((state) => state.user);
     useEffect(() => {
         if (error) {
@@ -15,7 +16,7 @@ const MyOrder = () => {
         }
 
         dispatch(myOrders());
-    }, [dispatch, alert, error]);
+    }, [dispatch, error]);
     return (
         <>
             {loading ? <Loader /> : <table class="table">
@@ -30,16 +31,16 @@ const MyOrder = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map((item, index) => (
-                        <tr key={item._id}>
+                    {orders?.map((item, index) => (
+                        <tr key={item?._id}>
                             <th scope="row">{index + 1}</th>
-                            <td>{item._id}</td>
-                            <td>{item.orderStatus}</td>
-                            <td>{item.orderItems.length}</td>
-                            <td>{item.totalPrice}</td>
+                            <td>{item?._id}</td>
+                            <td>{item?.orderStatus}</td>
+                            <td>{item?.orderItems.length}</td>
+                            <td>{item?.totalPrice}</td>
                             <td>
                                 <Link
-                                    to={`/order/${item._id}`}
+                                    to={`/order/${item?._id}`}
                                     className="btn"
                                 >
                                     View Details

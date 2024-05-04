@@ -46,14 +46,15 @@ function App() {
   const { vrifyUserAuthenticate, user } = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const BACKEND = 'https://mern-ecommerce-backend-mu.vercel.app'
+  // const BACKEND = 'http://localhost:5000'
   async function getStriptApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey");
+    const { data } = await axios.get(`${BACKEND}/api/v1/stripeapikey`);
     setStripeApiKey(data.stripeApiKey)
   }
   useEffect(() => {
     dispatch(loadUser());
     getStriptApiKey()
-
   }, [dispatch])
   const appearance = {
     theme: 'stripe',
@@ -63,8 +64,6 @@ function App() {
   };
   return (
     <div className='App' >
-
-
       {isAdminRoute ? null : <Header />}
       <ToastContainer
         position="bottom-center"

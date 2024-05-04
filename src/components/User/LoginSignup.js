@@ -23,11 +23,6 @@ const LoginSignup = () => {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        const user = {
-            name,
-            email,
-            password
-        };
         try {
             if (isLogin) {
                 dispatch(login(email, password));

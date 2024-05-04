@@ -1,8 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART,SAVE_SHIPPING_INFO } from "../Constants/CartConstants";
+import { ADD_TO_CART, REMOVE_FROM_CART, SAVE_SHIPPING_INFO } from "../Constants/CartConstants";
 import axios from "axios";
-
+const BACKEND_URL = "https://mern-ecommerce-backend-mu.vercel.app"
+// const BACKEND_URL = "http://localhost:5000"
 export const addToCart = (id, quantity) => async (dispatch, getstate) => {
-    const { data } = await axios.get(`https://mern-ecommerce-backend-mu.vercel.app/api/v1/product/${id}`);
+    const { data } = await axios.get(`${BACKEND_URL}/api/v1/product/${id}`);
     console.log(data)
     dispatch({
         type: ADD_TO_CART,
@@ -31,5 +32,5 @@ export const saveShippingInfo = (data) => (dispatch) => {
         type: SAVE_SHIPPING_INFO,
         payload: data,
     })
-    localStorage.setItem("shippingInfo",JSON.stringify(data));
+    localStorage.setItem("shippingInfo", JSON.stringify(data));
 };

@@ -12,7 +12,7 @@ import "./Payment.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { clearErrors } from "../../redux/Action/OrderAction";
-import {createOrder} from "../../redux/Action/OrderAction"
+import { createOrder } from "../../redux/Action/OrderAction"
 const Payment = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -22,11 +22,9 @@ const Payment = () => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.newOrder);
-
   const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
-  console.log(orderInfo)
-
-
+  // const BACKEND = 'https://mern-ecommerce-backend-mu.vercel.app'
+  const BACKEND = 'http://localhost:5000'
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
   };
@@ -49,7 +47,7 @@ const Payment = () => {
         },
       };
       const { data } = await axios.post(
-        "https://mern-ecommerce-backend-mu.vercel.app/api/v1/payment/process",
+        `${BACKEND}/api/v1/payment/process`,
         paymentData,
         config
       );
@@ -63,7 +61,7 @@ const Payment = () => {
             email: user.email,
             address: {
               line1: shippingInfo.address,
-              country : shippingInfo.country,
+              country: shippingInfo.country,
               city: shippingInfo.city,
               state: shippingInfo.state,
               postal_code: shippingInfo.pinCode,
@@ -96,27 +94,27 @@ const Payment = () => {
     }
   }
 
-  useEffect(()=>{
-    if(error){
+  useEffect(() => {
+    if (error) {
       toast.error(error)
       dispatch(clearErrors());
     }
-  },[dispatch,error])
+  }, [dispatch, error])
 
   return (
     <>
       <form className="payment-form" onSubmit={submitHandler}>
         <h3>Card Info</h3>
         <div>
-        <label>Card Number : </label>
+          <label>Card Number : </label>
           <CardNumberElement className="paymentInput" />
         </div>
         <div>
-        <label>Expiration Date : </label>
+          <label>Expiration Date : </label>
           <CardExpiryElement className="paymentInput" />
         </div>
         <div>
-        <label>CVC Number : </label>
+          <label>CVC Number : </label>
           <CardCvcElement className="paymentInput" />
         </div>
         <div>

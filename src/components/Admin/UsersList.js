@@ -66,14 +66,14 @@ const UsersList = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map(user => (
+              {users?.map(user => (
                 <tr key={user._id}>
                   <td>{user._id}</td>
                   <td>{user.email}</td>
                   <td>{user.name}</td>
                   <td>{user.role}</td>
                   <td>
-                    <Link to={`/admin/users/${user._id}`} className="btn ">
+                    <Link to={`/admin/users/${user?._id}`} className="btn ">
                       Edit
                     </Link>
                     <button onClick={() => deleteUserHandler(user._id)} className="btn btn2">

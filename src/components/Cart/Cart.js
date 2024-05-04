@@ -79,7 +79,7 @@ const Cart = () => {
                 <div className="row border-top border-bottom">
                   <div className="row main align-items-center">
                     <div className="col-2">
-                      <img className="img-fluid addimage" src={item.image} />
+                      <img className="img-fluid addimage" src={item.image} alt='item' />
                     </div>
                     <div className="custom-cart-two col">
                       <div className='col-md-6'>{item.name}</div>
