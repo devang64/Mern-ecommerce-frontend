@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import {
   CardNumberElement,
   CardCvcElement,
@@ -16,15 +16,15 @@ import { createOrder } from "../../redux/Action/OrderAction"
 const Payment = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const payBtn = useRef(null);
   const stripe = useStripe();
   const elements = useElements();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.newOrder);
+  const [loading, setLoading] = useState(false)
   const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
-  // const BACKEND = 'https://mern-ecommerce-backend-mu.vercel.app'
-  const BACKEND = 'http://localhost:5000'
+  const BACKEND = 'https://mern-ecommerce-backend-mu.vercel.app'
+  // const BACKEND = 'http://localhost:5000'
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
   };
@@ -39,11 +39,12 @@ const Payment = () => {
   };
   const submitHandler = async (e) => {
     e.preventDefault();
-    payBtn.current.disabled = true;
     try {
+      setLoading(true)
       const config = {
         headers: {
           "Content-Type": "application/json",
+          "token": localStorage.getItem("token")
         },
       };
       const { data } = await axios.post(
@@ -70,26 +71,22 @@ const Payment = () => {
           },
         },
       });
-      if (result.error) {
-        payBtn.current.disabled = false;
-        // toast.error(error)
+
+      if (result.paymentIntent.status === "succeeded") {
+        order.paymentInfo = {
+          id: result.paymentIntent.id,
+          status: result.paymentIntent.status,
+        };
+
+        dispatch(createOrder(order));
+        setLoading(false)
+        navigate("/success");
       } else {
-        if (result.paymentIntent.status === "succeeded") {
-          order.paymentInfo = {
-            id: result.paymentIntent.id,
-            status: result.paymentIntent.status,
-          };
-
-          dispatch(createOrder(order));
-
-          navigate("/success");
-        } else {
-          alert.error("There's some issue while processing payment ");
-        }
+        alert.error("There's some issue while processing payment ");
       }
 
+
     } catch (error) {
-      payBtn.current.disabled = false;
       toast.error(error)
     }
   }
@@ -103,6 +100,7 @@ const Payment = () => {
 
   return (
     <>
+      {/* <h1>Payment Process</h1> */}
       <form className="payment-form" onSubmit={submitHandler}>
         <h3>Card Info</h3>
         <div>
@@ -118,7 +116,8 @@ const Payment = () => {
           <CardCvcElement className="paymentInput" />
         </div>
         <div>
-          <button className="submit" ref={payBtn}>Pay Now</button>
+          <button className="submit" disabled={loading} >{loading ?
+          "Processing..." : "Pay Now"}</button>
         </div>
 
       </form>

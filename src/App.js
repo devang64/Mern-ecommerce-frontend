@@ -43,18 +43,25 @@ import ProductReviews from './components/Admin/ProductReviews';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch()
-  const { vrifyUserAuthenticate, user } = useSelector(state => state.user)
+  // const { vrifyUserAuthenticate, user } = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   const isAdminRoute = location.pathname.startsWith('/admin');
   const BACKEND = 'https://mern-ecommerce-backend-mu.vercel.app'
   // const BACKEND = 'http://localhost:5000'
-  async function getStriptApiKey() {
-    const { data } = await axios.get(`${BACKEND}/api/v1/stripeapikey`);
+  const getStriptApiKey = async () => {
+    const config = {
+      headers: {
+        'token': localStorage.getItem('token')
+      },
+    };
+    const { data } = await axios.get(`${BACKEND}/api/v1/stripeapikey`, config);
     setStripeApiKey(data.stripeApiKey)
   }
   useEffect(() => {
     dispatch(loadUser());
-    getStriptApiKey()
+    if (localStorage.getItem('token')) {
+      getStriptApiKey()
+    }
   }, [dispatch])
   const appearance = {
     theme: 'stripe',

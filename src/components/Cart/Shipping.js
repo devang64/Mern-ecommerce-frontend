@@ -14,24 +14,21 @@ function Shipping() {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems)
   const [shippingDetails, setShippingDetails] = useState({
-    // fullName: shippingInfo.fullName,
-    // phoneNumber : shippingInfo.phoneNumber,
-    fullName: '',
-    phoneNumber: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    state: '',
-    country: ''
-    // fullName: shippingInfo.fullName,
-    // phoneNumber: shippingInfo.phoneNumber,
-    // address: shippingInfo.address,
-    // city: shippingInfo.city,
-    // postalCode: shippingInfo.postalCode,
-    // state: shippingInfo.state,
-    // country: shippingInfo.country
+    fullName: shippingInfo?.fullName,
+    phoneNumber : shippingInfo?.phoneNumber,
+    // fullName: '',
+    // phoneNumber: '',
+    // address: '',
+    // city: '',
+    // postalCode: '',
+    // state: '',
+    // country: ''
+    address: shippingInfo?.address,
+    city: shippingInfo?.city,
+    postalCode: shippingInfo?.postalCode,
+    state: shippingInfo?.state,
+    country: shippingInfo?.country
   });
 
   const [paymentDetails, setPaymentDetails] = useState({
@@ -53,7 +50,7 @@ function Shipping() {
       subtotal, gst, shippingCharges, totalPrice
     }
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    // navigate('/process/payment')
+    navigate('/process/payment')
   }
 
   const handleContinue = () => {
@@ -240,9 +237,11 @@ function Shipping() {
           </button>
           <button className="continue-button" type="button" onClick={handleContinue}>Continue</button>
         </div>
-      ) : step === 3 ? (
-        <h3>Payment Processing is under maintenance...</h3>
-      ) : null}
+      ) :
+        // step === 3 ? (
+        //   <h3>Payment Processing is under maintenance...</h3>):
+        null
+      }
     </div>
   );
 }

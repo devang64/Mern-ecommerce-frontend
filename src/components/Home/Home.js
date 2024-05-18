@@ -101,7 +101,7 @@ const Home = () => {
         <>
           <MetaData title={'Ecommerce'} />
           <div className='home-container'>
-            <Sliders />
+            {/* <Sliders /> */}
             {loading ? (
               <Loader />
             ) : (
